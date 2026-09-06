@@ -1,0 +1,9 @@
+-r requirements_lint.txt
+colorlog==6.10.1
+homeassistant==2026.6.4
+# Runtime dependency of the vendored multibeton_modbus package (see
+# custom_components/multibeton/VENDORED.md). A concrete Modbus backend
+# (tmodbus here) must also be installed for scripts/develop to actually
+# connect to a controller - see manifest.json's "requirements" and the
+# README's "Known limitations" section for why it isn't pinned there too.
+modbus-connection[tmodbus]>=4.8.1,<5

@@ -1,0 +1,22 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Connect to the Modbus TCP gateway (or RTU-to-TCP gateway) in front of your Multibeton heat pump controller.",
+                "data": {
+                    "host": "Host",
+                    "port": "Port",
+                    "unit_id": "Modbus unit ID",
+                    "framer": "Wire framing"
+                }
+            }
+        },
+        "error": {
+            "cannot_connect": "Unable to connect to the controller. Check the host, port, unit ID, and framing.",
+            "unknown": "Unknown error occurred."
+        },
+        "abort": {
+            "already_configured": "This controller is already configured."
+        }
+    }
+}

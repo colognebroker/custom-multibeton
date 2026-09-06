@@ -1,0 +1,16 @@
+{
+  "domain": "multibeton",
+  "name": "Multibeton Heat Pump",
+  "codeowners": [
+    "@YOUR_GITHUB_USERNAME"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/YOUR_GITHUB_USERNAME/ha-multibeton",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/YOUR_GITHUB_USERNAME/ha-multibeton/issues",
+  "requirements": [
+    "modbus-connection[tmodbus]>=4.8.1,<5"
+  ],
+  "version": "0.1.0"
+}
