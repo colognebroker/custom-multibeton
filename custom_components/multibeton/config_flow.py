@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.const import CONF_HOST, CONF_PORT
+from homeassistant.const import CONF_HOST, CONF_NAME, CONF_PORT
 from homeassistant.helpers import selector
 
 from .api import MultibetonApiClient, MultibetonApiClientCommunicationError
@@ -50,8 +50,11 @@ class MultibetonFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     f"{user_input[CONF_UNIT_ID]}"
                 )
                 self._abort_if_unique_id_configured()
+                title = user_input.get(CONF_NAME) or (
+                    f"Multibeton ({user_input[CONF_HOST]})"
+                )
                 return self.async_create_entry(
-                    title=f"Multibeton ({user_input[CONF_HOST]})",
+                    title=title,
                     data=user_input,
                 )
 
@@ -59,6 +62,14 @@ class MultibetonFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=vol.Schema(
                 {
+                    vol.Optional(
+                        CONF_NAME,
+                        default=(user_input or {}).get(CONF_NAME, ""),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT,
+                        ),
+                    ),
                     vol.Required(
                         CONF_HOST,
                         default=(user_input or {}).get(CONF_HOST, vol.UNDEFINED),

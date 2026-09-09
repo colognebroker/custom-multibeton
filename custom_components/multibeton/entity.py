@@ -27,5 +27,5 @@ class MultibetonEntity(CoordinatorEntity[MultibetonDataUpdateCoordinator]):
             },
             manufacturer=DEVICE_MANUFACTURER,
             model=DEVICE_MODEL,
-            name="Multibeton Heat Pump",
+            name=coordinator.config_entry.title,
         )

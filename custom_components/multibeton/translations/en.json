@@ -4,6 +4,7 @@
             "user": {
                 "description": "Connect to the Modbus TCP gateway (or RTU-to-TCP gateway) in front of your Multibeton heat pump controller.",
                 "data": {
+                    "name": "Name",
                     "host": "Host",
                     "port": "Port",
                     "unit_id": "Modbus unit ID",
